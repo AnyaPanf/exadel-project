@@ -1,7 +1,8 @@
 import { FC } from "react"
 import { RegistrationFormProps } from "../interfaces"
+import { MistakeMessage } from "./MistakeMessage"
 
-export const Input: FC<RegistrationFormProps> = ({ parameter, user, setUser }) => {
+export const Input: FC<RegistrationFormProps> = ({ parameter, user, setUser, mistakes }) => {
     const handleChange = (e: object) => {
         setUser(prev => prev = { ...prev, [parameter]: e.target.value })
     }
@@ -13,6 +14,7 @@ export const Input: FC<RegistrationFormProps> = ({ parameter, user, setUser }) =
                 placeholder={`Enter your ${parameter}`}
                 onChange={handleChange}
                 value={user[parameter]}></input>
+            <MistakeMessage mistakes={mistakes} parameter={parameter}/>
         </div>
     )
 }

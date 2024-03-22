@@ -12,11 +12,14 @@ export interface RegistrationFormProps {
         password: string;
         isAccepted: boolean;
     },
-    parameter?: string,
     setUser?: React.Dispatch<React.SetStateAction<{
         name: string;
         email: string;
         password: string;
         isAccepted: boolean;
-    }>>
+    }
+    >>
+    parameter?: string,
+    mistakes?: string[],
+    setMistakes?: React.Dispatch<React.SetStateAction<string[]>>
 }

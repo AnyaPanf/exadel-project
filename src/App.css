@@ -79,3 +79,7 @@ button {
   color: #ffffff;
   border-radius: 5px;
 }
+
+.mistake_message {
+  color: rgb(148, 41, 41);
+}
