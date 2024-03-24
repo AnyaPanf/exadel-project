@@ -21,5 +21,9 @@ export interface RegistrationFormProps {
     >>
     parameter?: string,
     mistakes?: string[],
-    setMistakes?: React.Dispatch<React.SetStateAction<string[]>>
+    setMistakes?: React.Dispatch<React.SetStateAction<string[]>>,
+    inputRef?: React.MutableRefObject<HTMLInputElement | null>,
+    inputRef1?: React.MutableRefObject<HTMLInputElement | null>,
+    inputRef2?: React.MutableRefObject<HTMLInputElement | null>,
+    inputRef3?: React.MutableRefObject<HTMLInputElement | null>
 }

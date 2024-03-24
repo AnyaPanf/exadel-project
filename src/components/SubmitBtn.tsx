@@ -1,19 +1,25 @@
 import { FC } from "react"
 import { RegistrationFormProps } from "../interfaces"
 
-export const SubmitBtn: FC<RegistrationFormProps> = ({ user, setUser, setMistakes }) => {
+export const SubmitBtn: FC<RegistrationFormProps> = ({ user, setUser, setMistakes, inputRef1, inputRef2, inputRef3 }) => {
     const { name, email, password, isAccepted } = user
     const handleClick = () => {
-        if (name.length < 3) {
+
+        if (name.length < 2) {
             setMistakes("name")
-        } else if (email.length < 3) {
+            inputRef1.current?.focus()
+        } else if (!email.includes("@")) {
             setMistakes("email")
-        } else if (password.length < 3) {
+            inputRef2.current?.focus()
+        } else if (password.length < 5) {
             setMistakes("password")
+            inputRef3.current?.focus()
         } else {
-            console.log("You've been succesfully registered!");
+            setMistakes("success")
             setUser({ name: "", email: "", password: "", isAccepted: false })
-            setMistakes([])
+            setTimeout(() => {
+                setMistakes([])
+            }, 2000)
         }
     }
 
@@ -22,8 +28,8 @@ export const SubmitBtn: FC<RegistrationFormProps> = ({ user, setUser, setMistake
             <button
                 type="submit"
                 onClick={handleClick}
-                disabled={user.isAccepted ? false : true}
-                className={user.isAccepted ? "form_btn" : "form_btn-disabled"}
+                disabled={isAccepted ? false : true}
+                className={isAccepted ? "form_btn" : "form_btn-disabled"}
             >Submit</button>
         </div>
     )

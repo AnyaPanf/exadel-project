@@ -45,6 +45,7 @@ button {
   border: 1px solid #8a8a8d;
   padding: 5px;
   width: 100%;
+  position: relative;
 }
 
 .form_check {
@@ -80,6 +81,8 @@ button {
   border-radius: 5px;
 }
 
-.mistake_message {
+.status {
+  margin-top: 10px;
+  font-weight: 600;
   color: rgb(148, 41, 41);
 }
