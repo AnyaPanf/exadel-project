@@ -86,3 +86,9 @@ button {
   font-weight: 600;
   color: rgb(148, 41, 41);
 }
+
+.status-success {
+  margin-top: 10px;
+  font-weight: 600;
+  color: rgb(41, 148, 103);
+}

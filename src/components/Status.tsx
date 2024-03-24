@@ -22,7 +22,7 @@ export const Status: FC<RegistrationFormProps> = ({ mistakes }) => {
         )
     } else if (mistakes.includes("success")) {
         return (
-            <div className="status">
+            <div className="status-success">
                 <p>You've been successfully registered!</p>
             </div>
         )
