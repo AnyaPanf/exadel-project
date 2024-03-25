@@ -1,24 +1,24 @@
 import { FC } from "react"
 import { RegistrationFormProps } from "../interfaces"
 
-export const SubmitBtn: FC<RegistrationFormProps> = ({ user, setUser, setMistakes, inputRef1, inputRef2, inputRef3 }) => {
+export const SubmitBtn: FC<RegistrationFormProps> = ({ user, setUser, setMessages, inputRef1, inputRef2, inputRef3 }) => {
     const { name, email, password, isAccepted } = user
     const handleClick = () => {
 
         if (name.length < 2) {
-            setMistakes("name")
+            setMessages("name")
             inputRef1.current?.focus()
-        } else if (!email.includes("@")) {
-            setMistakes("email")
+        } else if (email.length <5 || !email.includes("@")) {
+            setMessages("email")
             inputRef2.current?.focus()
         } else if (password.length < 5) {
-            setMistakes("password")
+            setMessages("password")
             inputRef3.current?.focus()
         } else {
-            setMistakes("success")
+            setMessages("success")
             setUser({ name: "", email: "", password: "", isAccepted: false })
             setTimeout(() => {
-                setMistakes([])
+                setMessages([])
             }, 2000)
         }
     }

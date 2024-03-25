@@ -6,7 +6,7 @@ import { SubmitBtn } from "./SubmitBtn";
 import { Status } from "./Status";
 
 const RegistrationForm: FC<RegistrationFormProps> = ({ user, setUser }) => {
-    const [mistakes, setMistakes] = useState<string[]>([])
+    const [messages, setMessages] = useState<string[]>([])
     const parameters = Object.keys(user)
     const inputRef1 = useRef<HTMLInputElement | null>(null)
     const inputRef2 = useRef<HTMLInputElement | null>(null)
@@ -17,12 +17,13 @@ const RegistrationForm: FC<RegistrationFormProps> = ({ user, setUser }) => {
         <div className="form">
             <h1 className="form_title">Hi there!</h1>
             <div className="form__inputs">
-                <Input parameter={parameters[0]} user={user} setUser={setUser} mistakes={mistakes} inputRef={inputRef1} />
-                <Input parameter={parameters[1]} user={user} setUser={setUser} mistakes={mistakes} inputRef={inputRef2} />
-                <Input parameter={parameters[2]} user={user} setUser={setUser} mistakes={mistakes} inputRef={inputRef3} />
-                <Status mistakes={mistakes} />
+                <Input parameter={parameters[0]} user={user} setUser={setUser} inputRef={inputRef1} />
+                <Input parameter={parameters[1]} user={user} setUser={setUser} inputRef={inputRef2} />
+                <Input parameter={parameters[2]} user={user} setUser={setUser} inputRef={inputRef3} />
+                <Status messages={messages} />
                 <Checkbox parameter={parameters[3]} user={user} setUser={setUser} />
-                <SubmitBtn user={user} setUser={setUser} setMistakes={setMistakes} inputRef1={inputRef1} inputRef2={inputRef2} inputRef3={inputRef3} />
+                <SubmitBtn user={user} setUser={setUser} setMessages={setMessages} 
+                inputRef1={inputRef1} inputRef2={inputRef2} inputRef3={inputRef3} />
             </div>
         </div>
     )
