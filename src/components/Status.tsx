@@ -1,7 +1,10 @@
 import { FC } from "react"
-import { RegistrationFormProps } from "../interfaces"
 
-export const Status:FC <RegistrationFormProps> = ({ message }) => {
+interface RegistrationFormProps {
+    message: string,
+}
+
+export const Status: FC<RegistrationFormProps> = ({ message }) => {
     if (message === "name") {
         return (
             <div className="status">
