@@ -20,6 +20,7 @@ const RegistrationForm = () => {
             inputRef3.current?.focus()
         } else {
             setMessage("success")
+            setAccept(false)
             setTimeout(() => {
                 setMessage("")
             }, 2000)
