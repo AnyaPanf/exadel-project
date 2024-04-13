@@ -12,6 +12,8 @@ body {
   max-width: 1230px;
   padding: 0 15px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 10% 90%;
 }
 
 input,
@@ -20,9 +22,19 @@ button {
   background-color: transparent;
 }
 
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* FORM */
-.form {
-  max-width: 400px;
+.form,
+.upload {
+  width: 400px;
   padding: 20px;
   background-color: #ffffff;
   margin: 10% auto;
@@ -39,7 +51,8 @@ button {
   flex-direction: column;
 }
 
-.form_input {
+.form_input,
+.upload_input {
   margin-top: 20px;
   height: 35px;
   border: 1px solid #8a8a8d;
@@ -61,7 +74,8 @@ button {
   justify-content: center;
 }
 
-.form_btn {
+.form_btn,
+.upload_btn {
   margin-top: 20px;
   padding: 10px;
   width: 200px;
@@ -92,3 +106,18 @@ button {
   font-weight: 600;
   color: rgb(41, 148, 103);
 }
+
+/* SIDEBAR */
+
+.sidebar {
+  background-color: #8a8a8d69;
+  padding: 20px 5px;
+}
+
+.sidebar_list li {
+  padding-top: 15px;
+  color: black;
+}
+
+/* UPLOAD */
+
