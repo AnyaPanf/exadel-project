@@ -1,23 +1,29 @@
+import { log } from "console";
 import { FormEvent } from "react";
 
 export const Upload = () => {
-    сonst handleUpload = async (e: FormEvent<HTMLFormElement>) => {
+    const handleUpload = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
+        const currentTarget = e.currentTarget;
+        const formData = new FormData(currentTarget);
         const dataObject = Object.fromEntries(formData);
-        console.log(dataObject);
-        await fetch('http://localhost:3000/', {
+        const response = await fetch('http://localhost:3000/', {
             method: "POST",
             headers: {
                 "Content-type": "application/JSON",
             },
             body: JSON.stringify(dataObject),
         })
+        const message = await response.text()
+        console.log(message);
+        currentTarget.reset();
     }
 
     return (
         <>
             <form className="upload"
+                // method="post"
+                // action="/"
                 onSubmit={handleUpload}>
                 <input name="text"
                     id="text"
