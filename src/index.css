@@ -2,107 +2,105 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     background-color: #f4f1ed;
     background-image: url('../src/assets/background.jpg');
     background-size: cover;
-  }
-  
-  .container {
+}
+
+.container {
     max-width: 1230px;
     padding: 0 15px;
     margin: 0 auto;
-    /* display: grid;
-    grid-template-columns: 10% 90%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  /* HEADER */
-  .header {
+}
+
+/* HEADER */
+.header {
     width: 100%;
     padding: 15px;
     background-color: #00213642;
-  }
-  
-  .header_nav {
-  display: flex;
-  justify-content: end;
-  margin-right: 50px;
-  }
-  
-  .header_link {
+}
+
+.header_nav {
+    display: flex;
+    justify-content: end;
+    margin-right: 50px;
+}
+
+.header_link {
     margin-left: 50px;
     font-weight: 600;
     color: #ffffff;
-  }
-  
-  /* App */
-  
-  input,
-  button {
+}
+
+/* App */
+
+input,
+button {
     border: none;
     background-color: transparent;
-  }
-  
-  li {
+}
+
+li {
     list-style: none;
-  }
-  
-  a {
+}
+
+a {
     text-decoration: none;
     color: inherit;
-  }
-  
-  /* FORM */
-  .form,
-  .upload {
+}
+
+/* FORM */
+.form,
+.upload {
     width: 400px;
     padding: 20px;
     background-color: #ffffff;
     margin: 5% auto;
     border-radius: 10px;
     filter: drop-shadow(4px 10px 30px #8a8a8d);
-  }
-  
-  .form_title {
+}
+
+.form_title {
     text-align: center;
-  }
-  
-  .form__inputs {
+}
+
+.form__inputs {
     display: flex;
     flex-direction: column;
-  }
-  
-  .form_input,
-  .upload_input {
+}
+
+.form_input,
+.upload_input {
     margin-top: 20px;
     height: 35px;
     border: 1px solid #8a8a8d;
     padding: 5px;
     width: 100%;
     position: relative;
-  }
-  
-  .form_check {
+}
+
+.form_check {
     margin: 20px 10px 0 0;
-  }
-  
-  .form_accept {
+}
+
+.form_accept {
     margin-right: 10px;
-  }
-  
-  .btn {
+}
+
+.btn {
     display: flex;
     justify-content: center;
-  }
-  
-  .form_btn,
-  .upload_btn {
+}
+
+.form_btn,
+.upload_btn {
     margin-top: 20px;
     padding: 10px;
     width: 200px;
@@ -110,9 +108,9 @@
     color: #ffffff;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .form_btn-disabled {
+}
+
+.form_btn-disabled {
     background-color: #8a8a8d;
     display: block;
     margin-top: 20px;
@@ -120,39 +118,44 @@
     width: 200px;
     color: #ffffff;
     border-radius: 5px;
-  }
-  
-  .status {
+}
+
+.status {
     margin-top: 10px;
     font-weight: 600;
     color: rgb(148, 41, 41);
-  }
-  
-  .status-success {
+}
+
+.status-success {
     margin-top: 10px;
     font-weight: 600;
     color: rgb(41, 148, 103);
-  }
-  
-  /* SIDEBAR */
-  
-  .sidebar {
+}
+
+/* SIDEBAR */
+
+.sidebar {
     background-color: #8a8a8d69;
     padding: 20px 5px;
-  }
-  
-  .sidebar_list li {
+}
+
+.sidebar_list li {
     padding-top: 15px;
     color: black;
-  }
-  
-  /* UPLOAD */
+}
 
-  .upload_herader {
+/* UPLOAD */
+
+.upload_header {
     text-align: center;
     margin-top: 70px;
     color: #f36e00;
-font-size: 45px;
-  }
-  
-  
+    font-size: 45px;
+}
+
+/* FILES */
+.files {
+    width: 100%;
+    background-color: #ffffffa2;
+    height: 100vh;
+}

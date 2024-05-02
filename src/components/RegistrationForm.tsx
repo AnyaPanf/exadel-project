@@ -47,7 +47,6 @@ const RegistrationForm = () => {
         if (message === 'submit') {
             e.currentTarget.reset()
         }
-
     };
 
     return (

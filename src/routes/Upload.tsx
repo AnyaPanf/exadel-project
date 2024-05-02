@@ -6,25 +6,17 @@ export const Upload = () => {
         e.preventDefault();
         const currentTarget = e.currentTarget;
         const formData = new FormData(currentTarget);
-        // const dataObject = Object.fromEntries(formData);
-        // formData.append("file", dataObject.file);
-        console.log(formData);
-
 
         const response = await fetch('http://localhost:3000/', {
             method: "POST",
             body: formData,
         })
         currentTarget.reset();
-        // console.log(dataObject);
-
-        // const message = await response.text()
-        // console.log(message);
     }
 
     return (
         <div>
-            <h1 className="upload_herader">Add something new...</h1>
+            <h1 className="upload_header">Add something new...</h1>
             <form className="upload"
                 id="form"
                 encType="multipart/form-data"
