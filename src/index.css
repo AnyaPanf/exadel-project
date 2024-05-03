@@ -159,3 +159,32 @@ a {
     background-color: #ffffffa2;
     height: 100vh;
 }
+
+.files_table {
+    width: 97%;
+    border: 1px solid #002136;
+    margin: 15px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.files_tablerow {
+    text-align: center;
+    padding: 3px 0;
+}
+
+.files_tablerow td {
+    padding: 4px 0;
+}
+
+.files_tablerow:nth-child(odd) {
+    background-color:  #f36d0041;
+}
+
+.files_btn {
+    background-color: #525af7;
+    padding: 3px 7px;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
