@@ -2,38 +2,35 @@ import { useEffect, useState } from "react"
 
 export const Files = () => {
   const [allDocs, setAllDocs] = useState<{ id: number; name: string; created_at: string }[]>([])
+  const [shouldRerender, setShouldRerender] = useState<boolean>(false)
+
   useEffect(() => {
     fetch('http://localhost:3000/')
       .then(response => response.json())
       .then(data => setAllDocs(data));
-  }, []);
+  }, [shouldRerender]);
 
   const handleDownload = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     fetch('http://localhost:3000/files', {
       method: 'GET',
-      headers: {
-        'id': e.currentTarget.value,
-        'name': e.currentTarget.name,
-      }
+      // headers: {
+      //   'id': e.currentTarget.value,
+      //   'name': e.currentTarget.name,
+      // }
     })
       .then(res => res.blob())
       .then(console.log);
   };
 
   const handleDelete = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const requestOptions = {
+    const docId = e.currentTarget.value;
+    const docName = e.currentTarget.name;
+    const res = await fetch(`http://localhost:3000/${docId}/${docName}`, {
       method: 'DELETE',
-      headers: {
-        'id': e.currentTarget.value,
-        'name': e.currentTarget.name,
-      }
-    };
-    fetch('http://localhost:3000/', requestOptions)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-      })
+    });
+    if (res.status === 200) {
+      setShouldRerender(!shouldRerender)
+    }
   }
 
   return (
