@@ -1,13 +1,11 @@
 import { FormEvent } from "react";
 
 export const Upload = () => {
-
     const handleUpload = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const currentTarget = e.currentTarget;
         const formData = new FormData(currentTarget);
-
-        const response = await fetch('http://localhost:3000/', {
+        await fetch('http://localhost:3000/', {
             method: "POST",
             body: formData,
         })

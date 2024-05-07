@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 
 export const Files = () => {
-  const [allDocs, setAllDocs] = useState<{ id: number; name: string; created_at: string }[]>([])
-  const [shouldRerender, setShouldRerender] = useState<boolean>(false)
+  const [allDocs, setAllDocs] = useState<{ id: number; name: string; created_at: string }[]>([]);
+  const [shouldRerender, setShouldRerender] = useState<boolean>(false);
 
   useEffect(() => {
     fetch('http://localhost:3000/')
@@ -10,17 +10,29 @@ export const Files = () => {
       .then(data => setAllDocs(data));
   }, [shouldRerender]);
 
-  const handleDownload = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    fetch('http://localhost:3000/files', {
-      method: 'GET',
-      // headers: {
-      //   'id': e.currentTarget.value,
-      //   'name': e.currentTarget.name,
-      // }
-    })
-      .then(res => res.blob())
-      .then(console.log);
-  };
+  const handleDownload = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const docName = e.currentTarget.name;
+
+    function downloadFile(url: string, fileName: string) {
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    await fetch(`http://localhost:3000//public/files/${docName}`)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(blob);
+        console.log(url);
+        
+        downloadFile(url, docName); 
+        window.URL.revokeObjectURL(url);
+      });
+  }
 
   const handleDelete = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const docId = e.currentTarget.value;
