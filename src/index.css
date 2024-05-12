@@ -188,3 +188,10 @@ a {
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* ERROR */
+.error {
+    min-width: 300px;
+    background-color: #a9abfb;
+    z-index: 10;
+}

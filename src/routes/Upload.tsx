@@ -11,8 +11,11 @@ export const Upload = () => {
             method: "POST",
             body: formData,
         });
+
         if (res.ok) {
             navigate('/files');;
+        } else {
+            alert('Sorry, something went worng...')
         }
         currentTarget.reset();
     }

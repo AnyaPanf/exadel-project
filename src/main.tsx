@@ -1,12 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Header } from './routes/Header.tsx';
 import { Upload } from './routes/Upload.tsx';
 import { Files } from './routes/Files.tsx';
-
 
 const router = createBrowserRouter([
   {

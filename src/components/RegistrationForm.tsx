@@ -37,13 +37,6 @@ const RegistrationForm = () => {
         const dataObject = Object.fromEntries(formData);
         const { name, email, password } = dataObject
         validate(name as string, email as string, password as string)
-        // await fetch(http:/localhost:3000, {
-        //     method: "POST",
-        //     headers: {
-        //     "Content-type": "application/JSON",
-        // },
-        //     body: JSON.stringify(dataObject),
-        // })
         if (message === 'submit') {
             e.currentTarget.reset()
         }

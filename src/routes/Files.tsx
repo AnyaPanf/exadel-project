@@ -13,15 +13,20 @@ export const Files = () => {
   const handleDownload = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const docName = e.currentTarget.name;
 
-    await fetch(`http://localhost:3000/download/${docName}`)
-      .then((response) => response.blob())
-      .then((blob) => {
-        let url = URL.createObjectURL(blob);
-        let a = document.createElement('a');
-        a.href = url;
-        a.download = docName;
-        a.click();
-      });
+    const res = fetch(`http://localhost:3000/download/${docName}`)
+    try {
+      res.then((response) => response.blob())
+        .then((blob) => {
+          let url = URL.createObjectURL(blob);
+          let a = document.createElement('a');
+          a.href = url;
+          a.download = docName;
+          a.click();
+        });
+    } catch (error) {
+      alert('Sorry, something went wrong...')
+    }
+
   }
 
   const handleDelete = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -34,6 +39,8 @@ export const Files = () => {
     });
     if (res.status === 200) {
       setShouldRerender(!shouldRerender)
+    } else if (res.status === 400) {
+      alert('Sorry, something went wrong...')
     }
   }
 
