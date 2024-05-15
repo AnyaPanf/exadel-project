@@ -1,7 +1,9 @@
-import { FormEvent } from "react";
+import { FormEvent, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import NotificationContext from "../context/NotificationContext";
 
-export const Upload = () => {
+export const Upload: React.FC = () => {
+    const notificationCtx = useContext(NotificationContext);
     const navigate = useNavigate();
     const handleUpload = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -13,9 +15,10 @@ export const Upload = () => {
         });
 
         if (res.ok) {
-            navigate('/files');;
+            navigate('/files');
+            notificationCtx.success('Your document was successfully uploaded!');
         } else {
-            alert('Sorry, something went worng...')
+            notificationCtx.error("Sorry, couldn't upload your document.");
         }
         currentTarget.reset();
     }
@@ -42,4 +45,4 @@ export const Upload = () => {
             </form>
         </div>
     )
-}
+};

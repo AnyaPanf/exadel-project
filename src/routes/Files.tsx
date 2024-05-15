@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react"
+import { useState, useEffect, useContext } from "react";
+import NotificationContext from "../context/NotificationContext";
 
-export const Files = () => {
+export const Files: React.FC = () => {
+  const notificationCtx = useContext(NotificationContext);
   const [allDocs, setAllDocs] = useState<{ id: number; name: string; created_at: string }[]>([]);
   const [shouldRerender, setShouldRerender] = useState<boolean>(false);
 
@@ -24,9 +26,8 @@ export const Files = () => {
           a.click();
         });
     } catch (error) {
-      alert('Sorry, something went wrong...')
+      notificationCtx.error("Sorry, something went wrong.");
     }
-
   }
 
   const handleDelete = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -40,7 +41,7 @@ export const Files = () => {
     if (res.status === 200) {
       setShouldRerender(!shouldRerender)
     } else if (res.status === 400) {
-      alert('Sorry, something went wrong...')
+      notificationCtx.error("Sorry, something went wrong.");
     }
   }
 
@@ -76,4 +77,4 @@ export const Files = () => {
       </div>
     </>
   )
-}
+};

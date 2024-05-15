@@ -8,6 +8,9 @@ body {
     background-color: #f4f1ed;
     background-image: url('../src/assets/background.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position:inherit;
+    height: 100vh;
 }
 
 .container {
@@ -39,8 +42,7 @@ body {
     color: #ffffff;
 }
 
-/* App */
-
+/* APP */
 input,
 button {
     border: none;
@@ -145,7 +147,6 @@ a {
 }
 
 /* UPLOAD */
-
 .upload_header {
     text-align: center;
     margin-top: 70px;
@@ -178,7 +179,7 @@ a {
 }
 
 .files_tablerow:nth-child(odd) {
-    background-color:  #f36d0041;
+    background-color: #f36d0041;
 }
 
 .files_btn {
@@ -189,9 +190,19 @@ a {
     cursor: pointer;
 }
 
-/* ERROR */
+/* NOTIFICATION */
+.notification {
+    height: 100px;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    filter: drop-shadow(4px 10px 30px #8a8a8d);
+}
+
+.success {
+    background-color: #a9acff;
+}
+
 .error {
-    min-width: 300px;
-    background-color: #a9abfb;
-    z-index: 10;
+    background-color: #f2a408;
 }
