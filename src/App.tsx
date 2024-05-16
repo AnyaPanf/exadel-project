@@ -1,17 +1,21 @@
 import './App.css';
-import RegistrationForm from './components/RegistrationForm';
+// import RegistrationForm from './components/RegistrationForm';
 import { Header } from './routes/Header';
+import { Outlet } from "react-router-dom";
 import { NotificationProvider } from './context/NotificationContext.tsx';
-import { NotificationBar } from './components/Notification';
+import NotificationBar from './components/Notification';
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
     <>
       <NotificationProvider>
         <Header />
-        <NotificationBar />
         <div className='container'>
-          {/* <RegistrationForm /> */}
+          <div id="detail">
+            <NotificationBar />
+            {/* <RegistrationForm /> */}
+            <Outlet />
+          </div>
         </div>
       </NotificationProvider>
     </>

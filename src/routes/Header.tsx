@@ -9,9 +9,6 @@ export const Header = () => {
                     <Link to={`/files`} className="header_link">Files</Link>
                 </nav>
             </div>
-            <div id="detail">
-                <Outlet />
-            </div>
         </>
     )
 }

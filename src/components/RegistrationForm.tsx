@@ -90,6 +90,6 @@ const RegistrationForm = () => {
             </div>
         </form>
     )
-}
+};
 
-export default RegistrationForm 
+export default RegistrationForm;

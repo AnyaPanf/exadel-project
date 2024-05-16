@@ -16,7 +16,7 @@ export const Upload: React.FC = () => {
 
         if (res.ok) {
             navigate('/files');
-            notificationCtx.success('Your document was successfully uploaded!');
+            notificationCtx.success("Your file was successfully uploaded!");
         } else {
             notificationCtx.error("Sorry, couldn't upload your document.");
         }

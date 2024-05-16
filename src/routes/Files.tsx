@@ -47,8 +47,8 @@ export const Files: React.FC = () => {
 
   return (
     <>
-      <div className="container">
         <div className="files">
+          <h1 className="files_title">Your uploads</h1>
           <table className="files_table">
             <thead>
               <tr>
@@ -74,7 +74,6 @@ export const Files: React.FC = () => {
             </tbody>
           </table>
         </div>
-      </div>
     </>
   )
 };
