@@ -14,7 +14,7 @@ Exadel File Upload allows to upload and download files to the disk.
 ## Available Scripts
 In the project directory, you can run:
 
-### npx vite
+### npx run dev
 
 Runs the app in the development mode.
 Open http://localhost:1577 to view it in your browser.
